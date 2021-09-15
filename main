@@ -1,0 +1,2 @@
+clear ;
+go run src/main.go -address 0.0.0.0:50051

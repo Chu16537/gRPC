@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package ClientSDK;
+option go_package = "./ClientSDK";
+
+message UnaryReq{
+    string unaryReq = 1;
+}
+
+message UnaryRes{
+    string unaryRes = 1;
+}
+
+message serverStreamReq{
+    string serverStreamReq = 1;
+}
+
+message serverStreamRes{
+    string serverStreamRes = 1;
+}
+
+message clientStreamReq{
+    int32 clientStreamReq = 1;
+}
+
+message clientStreamRes{
+    int32 clientStreamRes = 1;
+}
+
+message bidirectionalStreamReq{
+    string bidirectionalStreamReq = 1;
+}
+
+message bidirectionalStreamRes{
+    string bidirectionalStreamRes = 1;
+}
+
+service GameController {
+    rpc unary(UnaryReq)returns(UnaryRes){};
+    rpc testStreamServer(serverStreamReq)returns(stream serverStreamRes){};
+    rpc testStreamClient(stream clientStreamReq)returns(clientStreamRes){};
+    rpc bidirectionalStream(stream bidirectionalStreamReq)returns(stream bidirectionalStreamRes){}
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ClientSDK;
+option go_package = "./ClientSDK";
+
+message LoginReq{
+    string username = 1;
+    string password = 2;
+}
+
+message LoginRes{
+    string access_token = 1;
+}
+
+service AuthService {
+    rpc Login(LoginReq)returns(LoginRes){};
+}
